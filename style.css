@@ -1,0 +1,86 @@
+.c1 {
+color: rgb(255, 0, 0) ;
+font-size: 40px;
+}
+.c2{
+    font-size: 80px;
+color: rgb(255, 0, 0);
+}
+a{
+    text-decoration: none;
+}
+.c3{ 
+    font-size: 25px;
+}
+img{
+    width: 300px;
+    height: 300px;
+border-radius: 150px;
+}
+.c4{
+color: rgb(255, 60, 0);
+font-size: 30px;
+}
+.c5{
+    color: rgb(43, 255, 0);
+    font-size: 15px;
+}
+body{
+margin: 0;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+background-image: url(mackgrand.jpg);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+.icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.icons img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+.icons img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.search-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: #ca0808;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+.c6 {
+border-top-left-radius: 100px;      
+border-top-right-radius: 15px;     
+border-bottom-right-radius: 110px;  
+border-bottom-left-radius: 15px;   
+}
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+input {
+    color: black;
+    border: 2px solid rgb(255, 166, 0);
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #ff7b00;
+    width: 500px;
+    height: 30px;
+    color: #6d0101;
+
+    font-size: 30px;
+}
