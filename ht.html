@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101020">
+<title &lrm;> SN FORGE| Website Marketplace 
+ بازار خرید و سفارش سایت 
+</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0b0b16;
+    --card: #151528;
+    --purple: #8b5cf6;
+    --blue: #38bdf8;
+    --text: #f5f3ff;
+    --muted: #aaa9c3;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.8;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: 92%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+/* سربرگ */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #101020f5;
+    border-bottom: 1px solid #ffffff12;
+    backdrop-filter: blur(15px);
+}
+.nav {
+    min-height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+.nav-btn, .primary-btn {
+    border: 0;
+    color: white;
+    padding: 10px 19px;
+    border-radius: 10px;
+    background: linear-gradient(120deg, var(--purple), #5742db);
+}
+/* بخش معرفی */
+
+.hero {
+    padding: 85px 0 65px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at 50% 0%, #7045dc35, transparent 65%);
+}
+
+.tag {
+    display: inline-block;
+    color: var(--blue);
+    background: #38bdf812;
+    border: 1px solid #38bdf833;
+    padding: 5px 14px;
+    border-radius: 25px;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 54px);
+    line-height: 1.6;
+    margin: 20px 0 12px;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--muted);
+}
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.secondary-btn {
+    border: 1px solid #ffffff25;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: transparent;
+    color: white;
+}
+
+/* مزیت‌ها */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 70px;
+}
+
+.feature {
+    background: var(--card);
+    border: 1px solid #ffffff10;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+}
+.feature-icon {
+    font-size: 29px;
+}
+
+.feature h3 {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.feature p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* عنوان بخش‌ها */
+
+.section {
+    padding-bottom: 75px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: clamp(23px, 3vw, 32px);
+}
+.section-title p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* جستجو و دسته‌بندی */
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    min-width: 0;
+    background: var(--card);
+    color: white;
+    border: 1px solid #ffffff20;
+    outline: none;
+    padding: 13px 16px;
+    border-radius: 12px;
+}
+
+.search-box input:focus {
+    border-color: var(--purple);
+}
+
+.filters {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter {
+    background: var(--card);
+    border: 1px solid #ffffff17;
+    color: var(--muted);
+    border-radius: 25px;
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.filter.active, .filter:hover {
+    background: var(--purple);
+    color: white;
+    border-color: var(--purple);
+}
+
+/* کارت سایت‌ها */
+
+.site-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.site-card {
+    background: var(--card);
+    border: 1px solid #ffffff12;
+    border-radius: 17px;
+    overflow: hidden;
+    transition: transform .25s, border-color .25s;
+    min-width: 0;
+}
+
+.site-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+}
+.section-title p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* جستجو و دسته‌بندی */
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    min-width: 0;
+    background: var(--card);
+    color: white;
+    border: 1px solid #ffffff20;
+    outline: none;
+    padding: 13px 16px;
+    border-radius: 12px;
+}
+
+.search-box input:focus {
+    border-color: var(--purple);
+}
+
+.filters {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter {
+    background: var(--card);
+    border: 1px solid #ffffff17;
+    color: var(--muted);
+    border-radius: 25px;
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.filter.active, .filter:hover {
+    background: var(--purple);
+    color: white;
+    border-color: var(--purple);
+}
+
+/* کارت سایت‌ها */
+
+.site-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.site-card {
+    background: var(--card);
+    border: 1px solid #ffffff12;
+    border-radius: 17px;
+    overflow: hidden;
+    transition: transform .25s, border-color .25s;
+    min-width: 0;
+}
+
+.site-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+}
+.site-image {
+    height: 190px;
+    position: relative;
+    overflow: hidden;
+    background: #252341;
+}
+
+.site-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s;
+}
+
+.site-card:hover .site-image img {
+    transform: scale(1.04);
+}
+
+.site-type {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #0b0b16dc;
+    color: var(--blue);
+    padding: 5px 10px;
+    font-size: 11px;
+    border-radius: 7px;
+}
+
+.site-info {
+    padding: 18px;
+}
+
+.site-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.description {
+    font-size: 12px;
+    color: var(--muted);
+    min-height: 48px;
+}
+.specs {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin: 13px 0;
+}
+
+.spec {
+    font-size: 10px;
+    color: #d6c8ff;
+    background: #8b5cf61c;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid #ffffff12;
+}
+
+.price {
+    color: #6ee7b7;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.order-btn {
+    border: 0;
+    color: white;
+    background: linear-gradient(120deg, var(--purple), #5945d8);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 12px;
+}
+
+.order-btn:hover {
+    filter: brightness(1.2);
+}
+
+.empty {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+}
+/* مراحل سفارش */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.step {
+    padding: 25px;
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid #ffffff12;
+}
+
+.step-number {
+    color: var(--blue);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.step h3 {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.step p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* تماس */
+
+.contact {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 60px;
+    background: linear-gradient(120deg, #35205d, #142d4a);
+    border-radius: 20px;
+}
+
+.contact h2 {
+    margin-bottom: 10px;
+}
+
+.contact p {
+    color: #d0cee4;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+footer {
+    border-top: 1px solid #ffffff12;
+    text-align: center;
+    color: var(--muted);
+    padding: 25px 15px;
+    font-size: 12px;
+}
+
+/* موبایل */
+
+@media (max-width: 850px) {
+    .site-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .site-image {
+        height: 170px;
+    }
+}
+@media (max-width: 570px) {
+    .nav {
+        min-height: 70px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .nav-btn {
+        font-size: 12px;
+        padding: 9px 12px;
+    }
+
+    .hero {
+        padding: 55px 0 45px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .features {
+        gap: 8px;
+        margin-bottom: 50px;
+    }
+.feature {
+        padding: 12px 5px;
+    }
+
+    .feature h3 {
+        font-size: 12px;
+    }
+
+    .feature p {
+        font-size: 10px;
+    }
+
+    .section {
+        padding-bottom: 55px;
+    }
+
+    .section-title {
+        display: block;
+    }
+
+    .section-title p {
+        margin-top: 5px;
+    }
+
+    .site-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .site-image {
+        height: 125px;
+    }
+
+    .site-info {
+        padding: 11px;
+    }
+
+    .site-info h3 {
+        font-size: 14px;
+    }
+
+    .description {
+        font-size: 11px;
+        min-height: 66px;
+    }
+
+    .specs {
+        gap: 5px;
+    }
+
+    .spec {
+        font-size: 9px;
+    }
+
+    .price-row {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .price {
+        font-size: 12px;
+    }
+
+    .order-btn {
+        width: 100%;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 350px) {
+    .site-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .site-image {
+        height: 190px;
+    }
+}
+</style>
+<meta name="google-site-verification" content="3N_38x5qsvusUxVJmNmL-SEi8xanfwdqPxnnbT9EbLk" />
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <a class="logo" href="#home">SN <span>FORGE.</span></a>
+
+        <nav>
+            <a href="#home">خانه</a>
+            <a href="#sites">نمونه سایت‌ها</a>
+            <a href="#steps">مراحل خرید</a>
+            <a href="#contact">تماس با ما</a>
+        </nav>
+
+        <a class="nav-btn" href="#sites">مشاهده سایت‌ها</a>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="container">
+            <span class="tag">بازار خرید و سفارش وب‌سایت</span>
+
+            <h1>
+                ایده‌ات رو به<br>
+                <span>یک سایت حرفه‌ای</span> تبدیل کن
+            </h1>
+            <p>
+                از میان نمونه‌سایت‌های مختلف انتخاب کن،
+                مشخصات و قیمت رو ببین و سایت مناسب کسب‌وکارت رو سفارش بده.
+            </p>
+
+            <div class="hero-actions">
+                <a class="primary-btn" href="#sites">دیدن سایت‌ها ↓</a>
+                <a class="secondary-btn" href="#steps">مراحل خرید</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container features">
+        <div class="feature">
+            <div class="feature-icon">💻</div>
+            <h3>طراحی متنوع</h3>
+            <p>نمونه‌های مختلف برای کسب‌وکارها</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📱</div>
+            <h3>طراحی واکنش‌گرا</h3>
+            <p>نمایش مناسب موبایل و کامپیوتر</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>سفارش آسان</h3>
+            <p>انتخاب سایت و ارسال درخواست خرید</p>
+        </div>
+    </section>
+    <section class="container section" id="sites">
+        <div class="section-title">
+            <div>
+                <h2>سایت‌های آماده خرید</h2>
+                <p>طرح مورد علاقه‌ات رو پیدا کن.</p>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="search" id="searchInput"
+                   placeholder="جستجو؛ مثلاً فروشگاهی، رستوران...">
+        </div>
+
+        <div class="filters">
+            <button class="filter active" data-category="همه">همه سایت‌ها</button>
+            <button class="filter" data-category="فروشگاهی">فروشگاهی</button>
+            <button class="filter" data-category="شرکتی">شرکتی</button>
+            <button class="filter" data-category="رستوران">رستوران</button>
+            <button class="filter" data-category="گیمینگ">گیمینگ</button>
+            <button class="filter" data-category="شخصی">شخصی</button>
+            <button class="filter" data-category="خبری">خبری</button>
+        </div>
+        <div class="site-grid" id="siteGrid">
+
+            <article class="site-card" data-category="فروشگاهی">
+                <div class="site-image">
+                    <img loading="lazy"
+                         src="fr.jpg"
+                         alt="نمونه سایت فروشگاهی">
+                    <span class="site-type">فروشگاهی</span>
+                </div>
+                <div class="site-info">
+                    <h3>فروشگاه اینترنتی</h3>
+                    <p class="description">
+                        مناسب فروش لباس، کفش، لوازم دیجیتال و محصولات متنوع.
+                    </p>
+                    <div class="specs">
+                        <span class="spec">HTML / CSS</span>
+                        <span class="spec">موبایل‌پسند</span>
+                        <span class="spec">صفحه محصول</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">از ۳ میلیون تومان</span>
+                        <button class="order-btn" data-name="فروشگاه اینترنتی"
+                                data-price="از ۳ میلیون تومان">سفارش سایت</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="site-card" data-category="رستوران">
+                <div class="site-image">
+                    <img loading="lazy"
+                         src="fc.jpg"
+                         alt="نمونه سایت رستوران">
+                    <span class="site-type">رستوران</span>
+                </div>
+                <div class="site-info">
+                    <h3>سایت رستوران و فست‌فود</h3>
+                    <p class="description">
+                        نمایش منو، قیمت غذاها، تصاویر و اطلاعات تماس رستوران.
+                    </p>
+                    <div class="specs">
+                        <span class="spec">HTML / CSS</span>
+                        <span class="spec">منوی غذا</span>
+                        <span class="spec">طراحی واکنش‌گرا</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">از ۲ میلیون تومان</span>
+                        <button class="order-btn" data-name="سایت رستوران"
+                                data-price="از ۲ میلیون تومان">سفارش سایت</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="site-card" data-category="شرکتی">
+                <div class="site-image">
+                    <img loading="lazy"
+                         src="sh.jpg"
+                         alt="نمونه سایت شرکتی">
+                    <span class="site-type">شرکتی</span>
+                </div>
+                <div class="site-info">
+                    <h3>سایت شرکتی</h3>
+                    <p class="description">
+                        معرفی شرکت، خدمات، تیم، سوابق کاری و راه‌های ارتباطی.
+                    </p>
+                    <div class="specs">
+                        <span class="spec">HTML / CSS</span>
+                        <span class="spec">صفحه خدمات</span>
+                        <span class="spec">فرم تماس</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">از ۲.۵ میلیون تومان</span>
+                        <button class="order-btn" data-name="سایت شرکتی"
+                                data-price="از ۲.۵ میلیون تومان">سفارش سایت</button>
+                    </div>
+                </div>
+            </article>
+
+            
+
+            <article class="site-card" data-category="گیمینگ">
+                <div class="site-image">
+                    <img loading="lazy"
+                         src="game.jpg"
+                         alt="نمونه سایت گیمینگ">
+                    <span class="site-type">گیمینگ</span>
+                </div>
+                <div class="site-info">
+                    <h3>سایت گیمینگ</h3>
+                    <p class="description">
+                        مناسب معرفی بازی‌ها، اخبار گیمینگ و محصولات مرتبط.
+                    </p>
+                    <div class="specs">
+                        <span class="spec">HTML / CSS</span>
+                        <span class="spec">طراحی تیره</span>
+                        <span class="spec">کارت بازی</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">از ۲.۸ میلیون تومان</span>
+                        <button class="order-btn" data-name="سایت گیمینگ"
+                                data-price="از ۲.۸ میلیون تومان">سفارش سایت</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="site-card" data-category="شخصی">
+                <div class="site-image">
+                    <img loading="lazy"
+                         src="shh.jpg"
+                         alt="نمونه سایت شخصی و نمونه کار">
+                    <span class="site-type">شخصی</span>
+                </div>
+                <div class="site-info">
+                    <h3>سایت شخصی و نمونه‌کار</h3>
+                    <p class="description">
+                        معرفی خودت، مهارت‌ها، پروژه‌ها و رزومه برای جذب مشتری.
+                    </p>
+                    <div class="specs">
+                        <span class="spec">HTML / CSS</span>
+                        <span class="spec">رزومه</span>
+                        <span class="spec">نمونه‌کار</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">از ۱.۵ میلیون تومان</span>
+                        <button class="order-btn" data-name="سایت شخصی"
+                                data-price="از ۱.۵ میلیون تومان">سفارش سایت</button>
+                    </div>
+                </div>
+            </article>
+            <article class="site-card" data-category="خبری">
+                <div class="site-image">
+                    <img loading="lazy"
+                         src="hg1.jpg"
+                         alt="نمونه سایت خبری">
+                    <span class="site-type">خبری</span>
+                </div>
+                <div class="site-info">
+                    <h3>سایت خبری و مجله</h3>
+                    <p class="description">
+                        انتشار اخبار، مقاله‌ها، مطالب آموزشی و دسته‌بندی محتوا.
+                    </p>
+                    <div class="specs">
+                        <span class="spec">HTML / CSS</span>
+                        <span class="spec">صفحه مقالات</span>
+                        <span class="spec">دسته‌بندی</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">از ۳.۵ میلیون تومان</span>
+                        <button class="order-btn" data-name="سایت خبری"
+                                data-price="از ۳.۵ میلیون تومان">سفارش سایت</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="empty" id="emptyMessage">سایتی با این مشخصات پیدا نشد.</p>
+    </section>
+
+    <section class="container section" id="steps">
+        <div class="section-title">
+            <div>
+                <h2>چطور سایت سفارش بدی؟</h2>
+                <p>سه مرحله ساده برای شروع.</p>
+            </div>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <span class="step-number">۰۱</span>
+                <h3>انتخاب سایت</h3>
+                <p>از بین دسته‌ها و نمونه‌کارها، طرح مناسب خودت رو انتخاب کن.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">۰۲</span>
+                <h3>ثبت درخواست</h3>
+                <p>روی سفارش کلیک کن و جزئیات مورد نیازت رو ارسال کن.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">۰۳</span>
+                <h3>توافق و تحویل</h3>
+                <p>بعد از مشخص شدن امکانات، هزینه نهایی و زمان تحویل توافق می‌کنید.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container contact" id="contact">
+        <h2>سایت مورد نظرت رو پیدا نکردی؟</h2>
+        <p>می‌تونی برای طراحی سایت اختصاصی درخواست بفرستی.</p>
+        <a href="#sites" class="primary-btn">مشاهده نمونه‌سایت‌ها</a>
+    <p></p>
+    </section>
+</main>
+
+<footer>
+    <p>SN FORGE | بازار طراحی و سفارش وب‌سایت</p>
+    <p>© تمام حقوق محفوظ است.</p>
+    <p>شماره تماس در واتساب 
+        09369388324
+    </p>
+</footer>
+
+<script>
+    
+const cards = [...document.querySelectorAll(".site-card")];
+const filters = [...document.querySelectorAll(".filter")];
+const searchInput = document.getElementById("searchInput");
+const emptyMessage = document.getElementById("emptyMessage");
+
+let selectedCategory = "همه";
+
+function filterSites() {
+    const query = searchInput.value.trim().toLocaleLowerCase("fa");
+    let visible = 0;
+
+    cards.forEach(card => {
+        const category = card.dataset.category;
+        const text = card.textContent.toLocaleLowerCase("fa");
+
+        const categoryMatch =
+            selectedCategory === "همه" ||
+            category === selectedCategory;
+
+        const searchMatch = text.includes(query);
+        const show = categoryMatch && searchMatch;
+
+        card.style.display = show ? "" : "none";
+
+        if (show) visible++;
+    });
+
+    emptyMessage.style.display = visible ? "none" : "block";
+}
+
+filters.forEach(button => {
+    button.addEventListener("click", () => {
+        selectedCategory = button.dataset.category;
+
+        filters.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+
+        filterSites();
+    });
+});
+
+searchInput.addEventListener("input", filterSites);
+
+// ثبت درخواست سفارش
+document.querySelectorAll(".order-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const name = button.dataset.name;
+        const price = button.dataset.price;
+
+        const message =
+            `سلام، برای سفارش ${name} درخواست دارم.\n` +
+            `قیمت درج‌شده: ${price}\n` +
+            `لطفاً امکانات و هزینه نهایی را اعلام کنید.`;
+
+        // شماره واتساپ خودت را جایگزین کن.
+        // کد کشور و شماره را بدون + و فاصله بنویس.
+        const whatsappNumber = "989369388324";
+
+        if (whatsappNumber === "989889888998") {
+            alert(
+                `سایت انتخابی: ${name}\n` +
+                `قیمت درج‌شده: ${price}\n\n` +
+                "برای فعال شدن سفارش، شماره واتساپ خودت را " +
+                "در کد جاوااسکریپت جایگزین کن."
+            );
+            return;
+        }
+
+      const rubikaUsername = "neo_web";
+alert(
+  "سفارش شما:\n" +
+  "نام سایت: " + name + "\n" +
+  "قیمت: " + price + "\n\n" +
+  "این پیام را کپی کن و برای ما در روبیکا بفرست."
+);
+const url = "https://rubika.ir/" + rubikaUsername;
+
+window.open(url, "_blank", "noopener,noreferrer");
+    });
+});
+
+</script>
+</body>
+</html>

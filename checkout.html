@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تکمیل سفارش | SN FORGE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0b0b16;
+            color: #f5f3ff;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 40px auto;
+        }
+
+        .checkout-box {
+            background: #151528;
+            border: 1px solid #292943;
+            border-radius: 18px;
+            padding: 25px;
+        }
+
+        h1 {
+            color: #a78bfa;
+            text-align: center;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .product img {
+            width: 125px;
+            height: 95px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .price {
+            color: #38bdf8;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 13px;
+            border-radius: 9px;
+            border: 1px solid #393957;
+            background: #0b0b16;
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 10px;
+            background: #8b5cf6;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        @media (max-width: 500px) {
+            .checkout-box {
+                padding: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+        <div class="checkout-box">
+
+            <h1>تکمیل سفارش</h1>
+
+            <div class="product">
+                <img id="productImage" src="" alt="تصویر سایت">
+
+                <div>
+                    <h3 id="productName">نام محصول</h3>
+                    <div class="price" id="productPrice"></div>
+                </div>
+            </div>
+
+            <form id="checkoutForm">
+
+                <label for="customerName">نام و نام خانوادگی</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    required
+                    maxlength="80"
+                    placeholder="نام خود را وارد کنید"
+                >
+
+                <label for="customerPhone">شماره موبایل</label>
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    required
+                    maxlength="11"
+                    pattern="09[0-9]{9}"
+                    placeholder="09123456789"
+                >
+
+                <label for="customerNote">توضیحات سفارش (اختیاری)</label>
+                <textarea
+                    id="customerNote"
+                    maxlength="500"
+                    placeholder="توضیحات بیشتر..."
+                ></textarea>
+
+                <button type="submit" class="submit-btn">
+                    ثبت سفارش و ادامه پرداخت
+                </button>
+
+            </form>
+
+            <a href="index.html#sites" class="back-btn">
+                بازگشت به سایت‌ها
+            </a>
+
+        </div>
+    </main>
+
+    <script src="checkout.js"></script>
+
+</body>
+</html>
